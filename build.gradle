@@ -3,7 +3,7 @@ plugins {
 }
 
 group 'net.minecraft'
-version 'rd-161348'
+version 'mc-161816'
 
 repositories {
     mavenCentral()
