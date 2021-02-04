@@ -469,6 +469,20 @@ public class Minecraft implements Runnable {
         float motionX = Mouse.getDX();
         float motionY = Mouse.getDY();
 
+        // Fix mouse issues in applet mode
+        if (this.appletMode) {
+            // Update mouse data
+            Display.processMessages();
+            Mouse.poll();
+
+            // Calculate mouse motion
+            motionX = (float) (Mouse.getX() - this.width / 2);
+            motionY = (float) (Mouse.getY() - this.height / 2);
+
+            // Reset cursor position
+            Mouse.setCursorPosition(this.width / 2, this.height / 2);
+        }
+
         // Rotate the camera using the mouse motion input
         this.player.turn(motionX, motionY * this.yMouseAxis);
 
