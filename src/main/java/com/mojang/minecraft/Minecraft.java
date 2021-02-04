@@ -30,6 +30,7 @@ public class Minecraft implements Runnable {
     private Level level;
     private LevelRenderer levelRenderer;
     private Player player;
+    private int yMouseAxis = 1;
 
     private final List<Zombie> zombies = new ArrayList<>();
     private ParticleEngine particleEngine;
@@ -287,6 +288,11 @@ public class Minecraft implements Runnable {
                     this.selectedTileId = Tile.bush.id;
                 }
 
+                // Invert mouse input on Y axis
+                if (Keyboard.getEventKey() == 21) {
+                    this.yMouseAxis *= -1;
+                }
+
                 // Spawn zombie
                 if (Keyboard.getEventKey() == 34) { // G
                     this.zombies.add(new Zombie(this.level, this.player.x, this.player.y, this.player.z));
@@ -464,7 +470,7 @@ public class Minecraft implements Runnable {
         float motionY = Mouse.getDY();
 
         // Rotate the camera using the mouse motion input
-        this.player.turn(motionX, motionY);
+        this.player.turn(motionX, motionY * this.yMouseAxis);
 
         // Pick tile
         pick(partialTicks);
