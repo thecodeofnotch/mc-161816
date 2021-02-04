@@ -13,7 +13,7 @@ Minecraft Wiki uses ``mc-161616`` for this version because it's in UTC format.
 
 ## Changes
 - Added Y hotkey: Swap mouse input on Y axis 
-- Improve mouse look logic
+- Calculate mouse motion in applet mode
 
 ## Accuracy
 This version has only been sent to [dock](https://minecraft.gamepedia.com/Hayden_Scott-Baron) and [fartron](https://forums.tigsource.com/index.php?action=profile;u=61) for testing.
